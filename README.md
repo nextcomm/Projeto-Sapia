@@ -50,7 +50,7 @@ npm install
 ```
 npm run serve
 ```
-### Accessar localhost
+### Acessar localhost
 ```
 http://localhost:8080
 ```
