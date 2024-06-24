@@ -3,7 +3,7 @@
       <SidebarSapia :totalBalance="totalBalance" />
       <section class="section minhas-consultas-section">
         <div class="container mt-5">
-        <h1 class="title">Minhas Consultas</h1>
+          <h1 class="title">Minhas Consultas</h1>
           <div class="columns is-multiline">
             <div class="column is-one-third" v-for="consulta in minhasConsultas" :key="consulta.consulta_id">
               <ConsultaCardMinhas 
@@ -91,7 +91,6 @@
   }
   </script>
   
-  
   <style>
   .minhas-consultas-container {
     display: flex;
@@ -99,25 +98,25 @@
   
   .minhas-consultas-section {
     position: relative;
-    background-color: #e0f7fa; 
+    background-color: #e0f7fa;
     min-height: 100vh;
     width: 100%;
-    margin-left: 250px; 
+    margin-left: 250px;
     padding: 20px;
-    overflow: hidden; 
+    overflow: hidden;
   }
   
   .minhas-consultas-section::before {
-    content: "\f0f1"; 
-    font-family: 'Font Awesome 5 Free'; 
+    content: "\f0f1";
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 500px;
-    color: rgba(0, 0, 0, 0.05); 
-    z-index: 0; 
+    color: rgba(0, 0, 0, 0.05);
+    z-index: 0;
   }
   
   .mt-5 {
@@ -127,6 +126,13 @@
   .modal-content {
     max-width: 500px;
     margin: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .minhas-consultas-section {
+      margin-left: 0;
+      padding: 10px;
+    }
   }
   </style>
   
