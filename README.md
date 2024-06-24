@@ -21,7 +21,13 @@ Após o pagamento, você receberá um e-mail de confirmação do agendamento da 
 
 ##
 
-## Instalação da interface médica
+## Interface médica
+```
+sapia-dashboard.nextcomm.tech/login
+```
+##
+
+## Instalar localmente
 
 ### Clone repositório
 ```
