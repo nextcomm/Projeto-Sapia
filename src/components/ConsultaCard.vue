@@ -1,13 +1,13 @@
 <template>
     <div class="card">
       <header class="card-header">
-        <p class="card-header-title" style="color: white;">
-          <i class="fa-solid fa-hospital-user"></i> ‎ {{ doctor }}
+        <p class="card-header-title">
+          <i class="fa-solid fa-hospital-user"></i> {{ doctor }}
         </p>
       </header>
       <div class="card-content">
         <div class="content">
-          <p style="color: black;">{{ details }}</p>
+          <p>{{ details }}</p>
         </div>
       </div>
       <footer class="card-footer">
@@ -53,7 +53,7 @@
             consultas.push(consulta);
             localStorage.setItem('associated_consultas', JSON.stringify(consultas));
             this.$emit('consultaAssociada', this.price * 0.7);
-            this.$router.push('/minhas-consultas');  
+            this.$router.push('/minhas-consultas');
           }
         } catch (error) {
           alert('Erro ao associar consulta.');
@@ -72,7 +72,7 @@
     border: 1px solid #e6e6e6;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
+    overflow: hidden;
   }
   
   .card-header {
@@ -81,8 +81,8 @@
   }
   
   .card-footer {
-    border: none; 
-    padding: 0; 
+    border: none;
+    padding: 0;
   }
   
   .card-footer-item {
@@ -92,7 +92,7 @@
   .card-footer-actions {
     display: flex;
     width: 100%;
-    margin-top: -1px; 
+    margin-top: -1px;
   }
   
   .button.is-success {
@@ -109,6 +109,15 @@
   .button.is-success:hover {
     background-color: #28a745;
     border-color: #28a745;
+  }
+  
+  @media (max-width: 768px) {
+    .card-footer-actions {
+      flex-direction: column;
+    }
+    .button.is-success {
+      width: 100%;
+    }
   }
   </style>
   
