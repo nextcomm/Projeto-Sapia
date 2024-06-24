@@ -1,43 +1,48 @@
 <template>
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <h1 class="sidebar-title">SAPIA</h1>
-      </div>
-      <div class="sidebar-content">
-        <div class="balance-display">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-dollar-sign"></i>
+    <div>
+      <button class="menu-button" @click="toggleSidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div :class="['sidebar', { 'is-active': sidebarActive }]">
+        <div class="sidebar-header">
+          <h1 class="sidebar-title">SAPIA</h1>
+        </div>
+        <div class="sidebar-content">
+          <div class="balance-display">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-dollar-sign"></i>
+              </span>
+              <span class="balance-amount">R$ {{ internalBalance.toFixed(2) }}</span>
             </span>
-            <span class="balance-amount">R$ {{ internalBalance.toFixed(2) }}</span>
-          </span>
-          <p class="balance-text">Saldo na Carteira</p>
-        </div>
-        <div class="sidebar-item">
-          <p class="doctor-name"><strong>{{ doctorName }}</strong></p>
-        </div>
-        <div class="sidebar-item">
-          <router-link to="/minhas-consultas" class="button is-primary is-fullwidth">Minhas Consultas</router-link>
-        </div>
-        <div class="sidebar-item">
-          <router-link to="/dashboard" class="button is-success is-fullwidth">Consultas Disponíveis</router-link>
-        </div>
-        <div class="sidebar-item">
-          <button class="button is-danger is-fullwidth" @click="logout">Logout</button>
-        </div>
-        <div class="sidebar-item">
-          <button class="button is-warning is-fullwidth" @click="toggleWithdraw">Sacar</button>
-          <div v-if="showWithdraw">
-            <div class="field">
-              <label class="label" for="withdrawAmount">Valor do Saque</label>
-              <div class="control has-icons-right">
-                <input v-model.number="withdrawAmount" id="withdrawAmount" class="input" type="number" min="0" :max="internalBalance" />
-                <span class="icon is-small is-right">
-                  <i class="fas fa-dollar-sign"></i>
-                </span>
+            <p class="balance-text">Saldo na Carteira</p>
+          </div>
+          <div class="sidebar-item">
+            <p class="doctor-name"><strong>{{ doctorName }}</strong></p>
+          </div>
+          <div class="sidebar-item">
+            <router-link to="/minhas-consultas" class="button is-primary is-fullwidth">Minhas Consultas</router-link>
+          </div>
+          <div class="sidebar-item">
+            <router-link to="/dashboard" class="button is-success is-fullwidth">Consultas Disponíveis</router-link>
+          </div>
+          <div class="sidebar-item">
+            <button class="button is-danger is-fullwidth" @click="logout">Logout</button>
+          </div>
+          <div class="sidebar-item">
+            <button class="button is-warning is-fullwidth" @click="toggleWithdraw">Sacar</button>
+            <div v-if="showWithdraw">
+              <div class="field">
+                <label class="label" for="withdrawAmount">Valor do Saque</label>
+                <div class="control has-icons-right">
+                  <input v-model.number="withdrawAmount" id="withdrawAmount" class="input" type="number" min="0" :max="internalBalance" />
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-dollar-sign"></i>
+                  </span>
+                </div>
               </div>
+              <button class="button is-warning" @click="withdraw">Confirmar Saque</button>
             </div>
-            <button class="button is-warning" @click="withdraw">Confirmar Saque</button>
           </div>
         </div>
       </div>
@@ -58,7 +63,8 @@
         doctorName: localStorage.getItem('user_name') || 'Dr. Nome',
         withdrawAmount: 0,
         internalBalance: this.totalBalance,
-        showWithdraw: false
+        showWithdraw: false,
+        sidebarActive: false
       };
     },
     methods: {
@@ -78,6 +84,9 @@
         } else {
           alert('Saldo insuficiente para realizar o saque.');
         }
+      },
+      toggleSidebar() {
+        this.sidebarActive = !this.sidebarActive;
       }
     },
     watch: {
@@ -89,16 +98,37 @@
   </script>
   
   <style scoped>
+  .menu-button {
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: #32cd32;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    padding-bottom: 10px;
+  }
+  
   .sidebar {
     width: 250px;
     background-color: #004d99;
     color: #ffffff;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: -250px; 
+    transition: left 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 1rem;
+    z-index: 999;
+  }
+  
+  .sidebar.is-active {
+    left: 0;
   }
   
   .sidebar-header {
