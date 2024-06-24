@@ -6,9 +6,9 @@
           <h1 class="title">Consultas Disponíveis</h1>
           <div class="columns is-multiline">
             <div class="column is-one-third" v-for="consulta in consultas" :key="consulta.consulta_id">
-              <ConsultaCard 
-                :doctor="consulta.nome_paciente" 
-                :details="consulta.status_agenda" 
+              <ConsultaCard
+                :doctor="consulta.nome_paciente"
+                :details="consulta.status_agenda"
                 :price="consulta.valor_pagamento"
                 :consultaId="consulta.consulta_id"
                 @consultaAssociada="updateBalance"
@@ -75,6 +75,11 @@
     margin-left: 250px;
     padding: 20px;
     overflow: hidden;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  .dashboard-section.mobile-sidebar-closed {
+    margin-left: 0;
   }
   
   .dashboard-section::before {
@@ -92,6 +97,12 @@
   
   .mt-5 {
     margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-section {
+      margin-left: 0;
+    }
   }
   </style>
   
