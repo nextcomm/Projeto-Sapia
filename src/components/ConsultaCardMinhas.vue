@@ -1,13 +1,13 @@
 <template>
   <div class="card">
     <header class="card-header">
-      <p class="card-header-title" style="color: white;">
-        <i class="fa-solid fa-hospital-user"></i> ‎ {{ doctor }}
+      <p class="card-header-title">
+        <i class="fa-solid fa-hospital-user"></i> {{ doctor }}
       </p>
     </header>
     <div class="card-content">
       <div class="content">
-        <p style="color: black;">{{ details }}</p>
+        <p>{{ details }}</p>
       </div>
     </div>
     <footer class="card-footer">
@@ -33,11 +33,11 @@ export default {
     details: String,
     price: Number,
     consultaId: String,
-    videoLink: String 
+    videoLink: String
   },
   methods: {
     consultarConsulta() {
-      window.open(`https://${this.videoLink}`); 
+      window.open(`https://${this.videoLink}`, '_blank');
     },
     async cancelarConsulta() {
       try {
@@ -52,7 +52,7 @@ export default {
           consultas = consultas.filter(consulta => consulta.consultaId !== this.consultaId);
           localStorage.setItem('associated_consultas', JSON.stringify(consultas));
           this.$emit('consultaCancelada', this.price * 0.7);
-          this.$router.push('/dashboard'); 
+          this.$router.push('/dashboard');
         }
       } catch (error) {
         alert('Erro ao cancelar consulta.');
@@ -71,7 +71,7 @@ export default {
   border: 1px solid #e6e6e6;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .card-header {
@@ -92,7 +92,7 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: -1px; 
+  margin-top: -1px;
 }
 
 .button.is-info {
@@ -119,5 +119,15 @@ export default {
 .button.is-danger:hover {
   background-color: #ff1e45;
   border-color: #ff1e45;
+}
+
+@media (max-width: 768px) {
+  .card-footer-actions {
+    flex-direction: column;
+  }
+  .button.is-info, .button.is-danger {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 </style>
