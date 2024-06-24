@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginForm from '@/components/LoginForm.vue';
-import DashboardSapia from '../views/DashboardSapia.vue';
+import DashboardSapia from '@/views/DashboardSapia.vue';
 import MinhasConsultas from '@/components/MinhasConsultas.vue';
 
 const routes = [
@@ -9,7 +9,6 @@ const routes = [
     name: 'LoginForm',
     component: LoginForm
   },
-  
   {
     path: '/dashboard',
     name: 'DashboardSapia',
@@ -25,6 +24,10 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/:pathMatch(.*)*', // Rota coringa
+    redirect: '/login'
   }
 ];
 
