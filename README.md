@@ -6,7 +6,7 @@ O paciente realiza a triagem interagindo com uma Inteligência Artificial (ChatG
 
 ##
 
-### Utilização a URL para triagem de pacientes com uma Inteligência Artificial (ChatGPT-4).
+### Utilização da URL para triagem de pacientes com uma Inteligência Artificial (ChatGPT-4).
 ```
 https://bot.nextcomm.tech/hackaton-v2-0oix57k 
 ```
