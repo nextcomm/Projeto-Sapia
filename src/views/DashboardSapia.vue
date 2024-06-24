@@ -3,7 +3,7 @@
       <SidebarSapia :totalBalance="totalBalance" />
       <section class="section dashboard-section">
         <div class="container mt-5">
-          <h1 class="title">Consultas Disponiveis</h1>
+          <h1 class="title">Consultas Disponíveis</h1>
           <div class="columns is-multiline">
             <div class="column is-one-third" v-for="consulta in consultas" :key="consulta.consulta_id">
               <ConsultaCard 
