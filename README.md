@@ -25,6 +25,13 @@ Após o pagamento, você receberá um e-mail de confirmação do agendamento da 
 ```
 http://sapia-dashboard.nextcomm.tech/login
 ```
+
+### Entrar com login
+```
+Login: alex@hotmail.com
+password: 123456
+```
+
 ##
 
 ## Instalar localmente interface médica
@@ -46,11 +53,6 @@ npm run serve
 ### Accessar localhost
 ```
 localhost:8080/login
-```
-### Entrar com login
-```
-Login: alex@hotmail.com
-password: 123456
 ```
 
 ### Compila e minimiza para produção
