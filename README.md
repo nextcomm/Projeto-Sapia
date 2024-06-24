@@ -23,7 +23,7 @@ Após o pagamento, você receberá um e-mail de confirmação do agendamento da 
 
 ## Interface médica
 ```
-sapia-dashboard.nextcomm.tech/login
+https://sapia-dashboard.nextcomm.tech/login
 ```
 ##
 
