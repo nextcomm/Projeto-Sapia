@@ -18,6 +18,7 @@ Por meio do Cal.com será feito o agendamento da consulta e realização do paga
 
 Após o pagamento, você receberá um e-mail de confirmação do agendamento da consulta.
 
+##
 
 ## Instalação da interface médica
 
