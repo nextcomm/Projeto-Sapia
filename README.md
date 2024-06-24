@@ -6,9 +6,10 @@ O paciente realiza a triagem interagindo com uma Inteligência Artificial (ChatG
 
 ##
 
-### Utilização do WhatsApp para triagem de pacientes com uma Inteligência Artificial (ChatGPT-4).
-
-Abra o WhatsApp e adicione o seguinte número aos seus contatos: 11 5192-1905
+### Utilização a URL para triagem de pacientes com uma Inteligência Artificial (ChatGPT-4).
+```
+https://bot.nextcomm.tech/hackaton-v2-0oix57k 
+```
 
 ### Marcação da consulta e pagamento
 
